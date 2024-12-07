@@ -13,9 +13,8 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 keyboard_bas = ReplyKeyboardMarkup(resize_keyboard=True)
 button3 = KeyboardButton(text="Count")
 button4 = KeyboardButton(text="Information")
+keyboard_bas.add(button3, button4)
 button5 = KeyboardButton(text="Buy")
-keyboard_bas.add(button3)
-keyboard_bas.add(button4)
 keyboard_bas.add(button5)
 
 keyboard = InlineKeyboardMarkup()
@@ -29,10 +28,7 @@ buy_but1 = InlineKeyboardButton(text="Product 1", callback_data="product_buying"
 buy_but2 = InlineKeyboardButton(text="Product 2", callback_data="product_buying")
 buy_but3 = InlineKeyboardButton(text="Product 3", callback_data="product_buying")
 buy_but4 = InlineKeyboardButton(text="Product 4", callback_data="product_buying")
-keyboard_buy.add(buy_but1)
-keyboard_buy.add(buy_but2)
-keyboard_buy.add(buy_but3)
-keyboard_buy.add(buy_but4)
+keyboard_buy.row(buy_but1, buy_but2, buy_but3, buy_but4)
 
 
 @dp.message_handler(commands=["start"])
